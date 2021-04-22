@@ -70,29 +70,32 @@
                             <input class="input" type="text" id='city' maxlength=40 required=true>
                         </div>
                     </div>
-                    <div class="State">
-                        <div class="row" required=true>
-                            <span>State</span>
-                            <span class = "required">*</span>
-                        </div>
-                        <select class="input1" id="stateSelect" size="1" >
-                            <option value="" disabled selected>Choose State</option>
-                            <option></option>
-                            </select>
-                    </div>
+                   
                     <div class="Country">
                         <div class="row" required=true>
                             <span>Country</span>
                             <span class = "required">*</span>
                         </div>
-                        <select  class="input1" name="country" id="countrySelect" size="1">
-
-                            <option value="" selected="selected"></option>
-                            <option>India</option>
-                            <option>UnitedStates</option>
-                            <option>Australia</option>
+                        <select  class="input1" name=" Country" id="countryId" onchange= "CountryChange()">
+                            <option value="0">Select Country</option>
+                            <option value='US'>United States</option>
+                            <option value='CA'>Canada</option>
+                            <option value='IN'>India</option>
+                            
                         </select>
                     </div>
+
+                    <div class="State">
+                        <div class="row" required=true>
+                            <span>State</span>
+                            <span class = "required">*</span>
+                        </div>
+                        <select class="input1" id="stateId" size="1" >
+                            <option value="" disabled selected>Choose State</option>
+                            <option></option>
+                            </select>
+                    </div>
+
                     <div class="Postal Code">
                         <div class="row" required=true>
                             <span>Postal Code</span>

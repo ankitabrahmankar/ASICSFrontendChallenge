@@ -1,26 +1,71 @@
-// var stateByCountry = {
-//     India: ["Maharashtra","Goa","Kerala"],
-//     UnitedStates: ["MA","CA","CO"],
-//     Australia: ["South Australia"," NorthAustralia"]
-//     }
-//     function makeSubmenu(value) {
-//     if(value.length==0) 
-//     {
-//         document.getElementById("stateSelect").innerHTML = "<option></option>";
-//     }
-//     else {
-//     var stateOptions = ""; 
-//     console.log(stateByCountry[value]);
-//     for(stateId in stateByCountry[value]) {
-//         console.log(stateId);
-//         stateOptions+="<option>"+stateByCountry[value][stateId]+"</option>";
-//     }
-//     document.getElementById("stateSelect").innerHTML = stateOptions;
-//     }
-//     }
+//Function to create a cascade dropdown for state and country
+window.CountryChange = function () {
+    var countryState = [
+      [
+        'US', [
+          ['', 'State/Province'],
+          ['AL', 'Alabama'],
+          ['AK', 'Alaska'],
+          ['AZ', 'Arizona'],
+          ['AR', 'Arkansas'],
+          ['MA', 'Massachusetts'],
+        ],
+      ],
+      [
+        'CA', [
+          ['', 'State/Province'],
+          ['AB', 'Alberta'],
+          ['BC', 'British Columbia'],
+          ['MB', 'Manitoba'],
+          ['NB', 'New Brunswick'],
+          ['NS', 'Nova Scotia.'],
+        ]
+      ],
+      [
+        'IN', [
+          ['', 'State/Province'],
+          ['MH', 'Maharashtra'],
+          ['GJ', 'Gujrat'],
+          ['GA', 'Goa'],
+          ['KR', 'Kerala'],
+          ['JK', 'Jammu Kashmir'],
+        ]
+      ]
+    ];
 
+    var countryElement = document.getElementById('countryId');
+    var stateElement = document.getElementById('stateId');
+    
+    if (countryElement && stateElement) {
+      var listOfState = [
+        ['XX', 'None']
+      ];
+
+      var currentCountry = countryElement.options[countryElement.selectedIndex].value;
+      for (var i = 0; i < countryState.length; i++) {
+        if (currentCountry == countryState[i][0]) {
+          listOfState = countryState[i][1];
+        }
+      }
+      var selectedState;
+      for (var i = 0; i < stateElement.length; i++) {
+        if (stateElement.options[i].selected === true) {
+          selectedState = stateElement.options[i].value;
+        }
+      }
+      stateElement.options.length = 0;
+      for (var i = 0; i < listOfState.length; i++) {
+        stateElement.options[i] = new Option(listOfState[i][1], listOfState[i][0]);
+        if (listOfState[i][0] == selectedState) {
+          stateElement.options[i].selected = true;
+        }
+      }
+    }
+  }
+
+//Function to print all the data from input fields into a JSON object format on console
 const saveJSONData =() => {
-    var firstname, lastname, address1, address2, city, postalcode,phone,email, checkbox;
+    var firstname, lastname, address1, address2, city, postalcode,phone,email, checkbox, state, country;
     firstname = document.getElementById('FirstName').value;
     lastname= document.getElementById('LastName').value;
     address1= document.getElementById('Address1').value;
@@ -30,6 +75,8 @@ const saveJSONData =() => {
     phone= document.getElementById('phone').value;
     email= document.getElementById('email').value;
     checkbox= document.getElementById('marketing').value;
+    state=document.getElementById('countryId').value;
+    country=document.getElementById('stateId').value;
 
     const output = {
         "firstName": firstname,
@@ -38,16 +85,14 @@ const saveJSONData =() => {
             "address1": address1 ,
             "address2": address2,
             "city": city,
-            "state": "",
-            "country": "",
+            "state": state,
+            "country": country,
             "postalCode": postalcode
         },
         "phone": phone,
         "email": email,
         "isSubscribed": checkbox
     }
-    
-
     console.log(output);
 }
 

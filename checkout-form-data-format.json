@@ -1,0 +1,15 @@
+{
+    "firstName": "",
+    "lastName": "",
+    "address": {
+        "address1": "",
+        "address2": "",
+        "city": "",
+        "state": "",
+        "country": "",
+        "postalCode": ""
+    },
+    "phone": "",
+    "email": "",
+    "isSubscribed": ""
+}

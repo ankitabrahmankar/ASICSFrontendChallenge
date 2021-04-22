@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+    <head>
+         <!--Meta tags are machine parsable-->
+        <!--This meta tag controls page's dimensions and scaling-->
+        <!--width=device-width part sets the width of the page to follow the screen-width of the device-->
+        <!--initial-scale=1.0 part sets initial zoom level when the page is first loaded by the browser-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--This meta tag gives description of web page-->
+        <meta name="description" content="Using HTML and SCSS">
+        <!--This meta tag displays author of the page-->
+        <meta name="author" content="Ankita Brahmankar">
+
+        <link rel="stylesheet" href="/checkout.css">
+        <script src="checkout.js"></script>
+
+    </head>
+    <body>
+        <!-- <header class="site-header">
+            <div class="title">Shipping Address</div>
+          </header> -->
+          <div class="card">
+            <div class="container">
+              <div class ="title">1. Shipping Address</div>
+            </div>
+            <div class= "shipping-address-form">
+                <fieldset>
+                    <div class="firstName">
+                        <div class="row" required=true>
+                            <span>First Name</span>
+                            <span class = "required">*</span>
+                        </div>
+                        <div>
+                            <input onfocusout="validation(this)" data-value="fname" class="input" type="text" id='FirstName' maxlength=35 required=true>
+                        </div>
+                        <div id="fname" class="invalidfeedback">
+							This field is required.
+						</div>
+                    </div>
+                    <div class="lastName">
+                        <div class="row" required=true>
+                            <span>Last Name</span>
+                            <span class = "required">*</span>
+                        </div>
+                        <div>
+                            <input class="input" 	onfocusout="validation(this)"
+                            data-value="lname" type="text" id='LastName' maxlength=35 required=true>
+                        </div>
+                        <div id="lname" class="invalidfeedback">
+							This field is required.
+						</div>
+                    </div>
+                    <div class="address1">
+                        <div class="row" required=true>
+                            <span>Address 1</span>
+                            <span class = "required">*</span>
+                        </div>
+                        <div>
+                            <input class="input" onfocusout="validation(this)" data-value="address"  type="text" id='Address1' maxlength=100 required=true>
+                        </div>
+                        <div id="address" class="invalidfeedback">
+							This field is required.
+						</div>
+                    </div>
+                    <div class="address2">
+                        <div class="row" required=true>
+                            <span>Address 2</span>
+                            <!-- <span class = "required">*</span> -->
+                        </div>
+                        <div>
+                            <input class="input" type="text" id='Address2' maxlength=100 >
+                        </div>
+                    </div>
+                    <div class="City">
+                        <div class="row" required=true>
+                            <span>City</span>
+                            <span class = "required">*</span>
+                        </div>
+                        <div>
+                            <input class="input" onfocusout="validation(this)" data-value="ct"  type="text" id='city' maxlength=40 required=true>
+                        </div>
+                        <div id="ct" class="invalidfeedback">This field is required.</div>
+                    </div>
+                   
+                    <div class="Country">
+                        <div class="row" required=true>
+                            <span>Country</span>
+                            <span class = "required">*</span>
+                        </div>
+                        <select  class="input1" onfocusout="validation(this)" data-value="cnt"  name=" Country" id="countryId" onchange= "CountryChange()">
+                            <option value="">Select Country</option>
+                            <option value='US'>United States</option>
+                            <option value='CA'>Canada</option>
+                            <option value='IN'>India</option>
+                            
+                        </select>
+                    </div>
+                    <div id="cnt" class="invalidfeedback">This field is required.</div>
+				
+                    <div class="State">
+                        <div class="row" required=true>
+                            <span>State</span>
+                            <span class = "required">*</span>
+                        </div>
+                        <select class="input1" onfocusout="validation(this)" data-value="st"  id="stateId" size="1" >
+                            <option value="" disabled selected>Choose State</option>
+                            <option></option>
+                            </select>
+                    </div>
+                    <div id="st" class="invalidfeedback">This field is required.</div>
+
+                    <div class="Postal Code">
+                        <div class="row" required=true>
+                            <span>Postal Code</span>
+                            <span class = "required">*</span>
+                        </div>
+                        <div>
+                            <input class="input1" onfocusout="validation(this)" data-value="ps-code"  type="text" id='postalcode' maxlength=40 required=true>
+                        </div>
+                    </div>
+                    <div id="ps-code" class="invalidfeedback">
+                        This field is required.
+                    </div>
+                    <div class="Phone">
+                        <div class="row" required=true>
+                            <span>Phone</span>
+                            <span class = "required">*</span>
+                        </div>
+                        <div>
+                            <input class="input1" onfocusout="validation(this)" data-value="ph"  type="text" id='phone' maxlength=40 required=true>
+                        </div>
+                    </div>
+                    <div id="ph" class="invalidfeedback">This field is required.</div>
+				
+                    <div class="Email">
+                        <div class="row" required=true>
+                            <span>Email</span>
+                            <span class = "required">*</span>
+                        </div>
+                        <div>
+                            <input class="input" onfocusout="validation(this)" data-value="em"  type="email" id='email' maxlength=40 required=true>
+                        </div>
+                    </div>
+                    <div id="em" class="invalidfeedback">This field is required.</div>
+			
+                    <div class="checkbox">
+                       
+                        <div>
+                            <input type="checkbox" id="marketing" name="marketing" value=true checked=true
+                            <label for="marketing" class="checkbox_input"> Subscribe to email marketing (optional). Uncheck box if you do not wish to subscribe.</label><br>
+                        </div>
+                    </div>
+                    <div class="submitButton">
+                      
+                       <button class = "btn" onclick="saveJSONData()">Place Order</button>
+                        
+                    </div>
+                </fieldset>
+            </div>
+          </div>
+    </body>
+</html>

@@ -73,3 +73,22 @@
     margin-left: 300px;
   }
   
+  .invalid {
+    border-color: #b9411d;
+    border-width: 2px;
+    border-style: solid;
+    background-image: url("icon_error.svg");
+    background-repeat: no-repeat;
+    background-size: 30px;
+    /* padding-top: 8px; */
+    background-position: top calc(0.375em + 0.1875rem) right
+      calc(1.375em + 0.1875rem);
+  }
+  
+  .invalidfeedback {
+    display: none;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.875em;
+    color: #b9411d;
+  }

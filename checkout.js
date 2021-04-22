@@ -1,4 +1,6 @@
 //Function to create a cascade dropdown for state and country
+
+let invalidFields=[]
 window.CountryChange = function () {
     var countryState = [
       [
@@ -63,37 +65,66 @@ window.CountryChange = function () {
     }
   }
 
+  function validation() {
+    console.log("this ", this.event.target);
+    console.log("this ", this.event.target.dataset.value);
+    const value = this.event.target.value;
+    const id = this.event.target.id;
+    const validationDiv = this.event.target.dataset.value;
+
+    if (value === "") {
+        const invalid = {
+            id, data: validationDiv
+        }
+        invalidFields.push(invalid);
+        document.getElementById(id).classList.add("invalid");
+        document.getElementById(validationDiv).style.display = "block";
+    } else {
+        document.getElementById(id).classList.remove("invalid");
+        document.getElementById(validationDiv).style.display = "none";
+        invalidFields = invalidFields.filter(field => field.id !== id);
+    }
+    console.log(invalidFields)
+}
+
+
 //Function to print all the data from input fields into a JSON object format on console
 const saveJSONData =() => {
-    var firstname, lastname, address1, address2, city, postalcode,phone,email, checkbox, state, country;
-    firstname = document.getElementById('FirstName').value;
-    lastname= document.getElementById('LastName').value;
-    address1= document.getElementById('Address1').value;
-    address2= document.getElementById('Address2').value;
-    city= document.getElementById('city').value;
-    postalcode= document.getElementById('postalcode').value;
-    phone= document.getElementById('phone').value;
-    email= document.getElementById('email').value;
-    checkbox= document.getElementById('marketing').value;
-    state=document.getElementById('countryId').value;
-    country=document.getElementById('stateId').value;
-
-    const output = {
-        "firstName": firstname,
-        "lastName": lastname,
-        "address": {
-            "address1": address1 ,
-            "address2": address2,
-            "city": city,
-            "state": state,
-            "country": country,
-            "postalCode": postalcode
-        },
-        "phone": phone,
-        "email": email,
-        "isSubscribed": checkbox
+  console.log(invalidFields.length)
+    if(invalidFields.length > 0){
+      alert("Please insert all required fields");
+    }else{
+      var firstname, lastname, address1, address2, city, postalcode,phone,email, checkbox, state, country;
+      firstname = document.getElementById('FirstName').value;
+      lastname= document.getElementById('LastName').value;
+      address1= document.getElementById('Address1').value;
+      address2= document.getElementById('Address2').value;
+      city= document.getElementById('city').value;
+      postalcode= document.getElementById('postalcode').value;
+      phone= document.getElementById('phone').value;
+      email= document.getElementById('email').value;
+      checkbox= document.getElementById('marketing').value;
+      state=document.getElementById('countryId').value;
+      country=document.getElementById('stateId').value;
+  
+      const output = {
+          "firstName": firstname,
+          "lastName": lastname,
+          "address": {
+              "address1": address1 ,
+              "address2": address2,
+              "city": city,
+              "state": state,
+              "country": country,
+              "postalCode": postalcode
+          },
+          "phone": phone,
+          "email": email,
+          "isSubscribed": checkbox
+      }
+      console.log(output);
     }
-    console.log(output);
+
 }
 
 

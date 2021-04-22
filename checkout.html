@@ -11,7 +11,7 @@
         <!--This meta tag displays author of the page-->
         <meta name="author" content="Ankita Brahmankar">
 
-        <link rel="stylesheet" href="/ASICS-Frontend-Challenge/checkout.css">
+        <link rel="stylesheet" href="/checkout.css">
         <script src="checkout.js"></script>
 
     </head>
@@ -31,7 +31,7 @@
                             <span class = "required">*</span>
                         </div>
                         <div>
-                            <input class="input" type="text" id='firstName' maxlength=35 required=true>
+                            <input class="input" type="text" id='FirstName' maxlength=35 required=true>
                         </div>
                     </div>
                     <div class="lastName">
@@ -40,10 +40,10 @@
                             <span class = "required">*</span>
                         </div>
                         <div>
-                            <input class="input" type="text" id='lastName' maxlength=35 required=true>
+                            <input class="input" type="text" id='LastName' maxlength=35 required=true>
                         </div>
                     </div>
-                    <div class="Address1">
+                    <div class="address1">
                         <div class="row" required=true>
                             <span>Address 1</span>
                             <span class = "required">*</span>
@@ -52,7 +52,7 @@
                             <input class="input" type="text" id='Address1' maxlength=100 required=true>
                         </div>
                     </div>
-                    <div class="Address2">
+                    <div class="address2">
                         <div class="row" required=true>
                             <span>Address 2</span>
                             <!-- <span class = "required">*</span> -->
@@ -126,6 +126,11 @@
                             <input type="checkbox" id="marketing" name="marketing" value=true>
                             <label for="marketing" class="checkbox_input"> Subscribe to email marketing (optional). Uncheck box if you do not wish to subscribe.</label><br>
                         </div>
+                    </div>
+                    <div class="submitButton">
+                      
+                       <button class = "btn" onclick="saveJSONData()">Place Order</button>
+                        
                     </div>
                 </fieldset>
             </div>

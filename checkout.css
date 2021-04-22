@@ -61,7 +61,7 @@
 
   .btn{
    
-    width: 70%;
+    width: 100%;
     color:white;
     background-color: #001e63;
     font-size: 1.5em;
@@ -70,7 +70,7 @@
     margin-bottom: 10px;
     margin-top: 10px;
     height: 100px;
-    margin-left: 300px;
+
   }
   
   .invalid {

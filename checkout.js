@@ -88,6 +88,29 @@ window.CountryChange = function () {
 }
 
 
+
+function validation2(value,id,validationDiv) {
+  console.log("this ", this.event.target);
+  console.log("this ", this.event.target.dataset.value);
+  // const value = this.event.target.value;
+  // const id = this.event.target.id;
+  // const validationDiv = this.event.target.dataset.value;
+console.log("val",value);
+  if (value === "") {
+      const invalid = {
+          id, data: validationDiv
+      }
+      invalidFields.push(invalid);
+      document.getElementById(id).classList.add("invalid");
+      document.getElementById(validationDiv).style.display = "block";
+  } else {
+      document.getElementById(id).classList.remove("invalid");
+      document.getElementById(validationDiv).style.display = "none";
+      invalidFields = invalidFields.filter(field => field.id !== id);
+  }
+  console.log(invalidFields)
+}
+
 //Function to print all the data from input fields into a JSON object format on console
 const saveJSONData =() => {
   console.log(invalidFields.length)
@@ -106,8 +129,21 @@ const saveJSONData =() => {
       checkbox= document.getElementById('marketing').value;
       state=document.getElementById('countryId').value;
       country=document.getElementById('stateId').value;
-  
-      const output = {
+      
+      if(firstname ===""
+      || lastname ===""
+      ||address1 ===""
+      || city===""
+      ||postalcode ===""
+      || phone ===""
+      ||email===""
+      || state===""
+      || country ==="")
+      {
+        alert("Please insert all required fields");
+      }else{
+
+        const output = {
           "firstName": firstname,
           "lastName": lastname,
           "address": {
@@ -123,6 +159,9 @@ const saveJSONData =() => {
           "isSubscribed": checkbox
       }
       console.log(output);
+      }
+      
+
     }
 
 }

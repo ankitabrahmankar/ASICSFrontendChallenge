@@ -31,7 +31,8 @@
                             <span class = "required">*</span>
                         </div>
                         <div>
-                            <input onfocusout="validation(this)" data-value="fname" class="input" type="text" id='FirstName' maxlength=35 required=true>
+                            <input onfocusout="validation(this)" 
+                            data-value="fname" class="input" type="text" id='FirstName' maxlength=35 required=true>
                         </div>
                         <div id="fname" class="invalidfeedback">
 							This field is required.
@@ -127,7 +128,7 @@
                             <span class = "required">*</span>
                         </div>
                         <div>
-                            <input class="input1" onfocusout="validation(this)" data-value="ph"  type="text" id='phone' maxlength=40 required=true>
+                            <input class="input1" onfocusout="validation(this)" data-value="ph"  type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" id='phone' maxlength=40 required=true>
                         </div>
                     </div>
                     <div id="ph" class="invalidfeedback">This field is required.</div>
